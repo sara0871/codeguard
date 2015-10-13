@@ -234,7 +234,7 @@ Style/BlockDelimiters:
     - it
 
 Style/BracesAroundHashParameters:
-  EnforcedStyle: no_braces
+  EnforcedStyle: context_dependent
   SupportedStyles:
     # The `braces` style enforces braces around all method parameters that are
     # hashes.
@@ -310,37 +310,6 @@ Style/CommandLiteral:
   # If false, the cop will always recommend using %x if one or more backticks
   # are found in the command string.
   AllowInnerBackticks: false
-
-# Checks formatting of special comments
-Style/CommentAnnotation:
-  Keywords:
-    - TODO
-    - FIXME
-    - OPTIMIZE
-    - HACK
-    - REVIEW
-
-# Checks that you have put a copyright in a comment before any code.
-#
-# You can override the default Notice in your .rubocop.yml file.
-#
-# In order to use autocorrect, you must supply a value for the
-# AutocorrectNotice key that matches the regexp Notice.  A blank
-# AutocorrectNotice will cause an error during autocorrect.
-#
-# Autocorrect will add a copyright notice in a comment at the top
-# of the file immediately after any shebang or encoding comments.
-#
-# Example rubocop.yml:
-#
-# Style/Copyright:
-#   Enabled: true
-#   Notice: 'Copyright (\(c\) )?2015 Yahoo! Inc'
-#   AutocorrectNotice: '# Copyright (c) 2015 Yahoo! Inc.'
-#
-Style/Copyright:
-  Notice: '^Copyright (\(c\) )?2[0-9]{3} .+'
-  AutocorrectNotice: ''
 
 # Multi-line method chaining should be done with leading dots.
 Style/DotPosition:
@@ -445,7 +414,7 @@ Style/GuardClause:
   MinBodyLength: 1
 
 Style/HashSyntax:
-  EnforcedStyle: ruby19
+  EnforcedStyle: ruby19_no_mixed_keys
   SupportedStyles:
     - ruby19
     - ruby19_no_mixed_keys
@@ -511,7 +480,7 @@ Style/NonNilCheck:
   #
   # With `IncludeSemanticChanges` set to `false`, this cop does not report
   # offenses for `!x.nil?` and does no changes that might change behavior.
-  IncludeSemanticChanges: false
+  IncludeSemanticChanges: true
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
@@ -680,7 +649,9 @@ Style/SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: true
 
 Style/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: space
+  # NOTE(marcinw): I  don't like it but it seems to be an established code quest
+  #                pattern so instead of fighting against it we can codify it.
+  EnforcedStyle: no_space
   EnforcedStyleForEmptyBraces: no_space
   SupportedStyles:
     - space
@@ -709,7 +680,9 @@ Style/TrailingComma:
   # last item of a list, but only for lists where each item is on its own line.
   # If EnforcedStyleForMultiline is consistent_comma, the cop requires a comma
   # after the last item of a list, for all lists.
-  EnforcedStyleForMultiline: no_comma
+  #
+  # NOTE(marcinw): this is Google style - makes moving individual lines easier.
+  EnforcedStyleForMultiline: comma
   SupportedStyles:
     - comma
     - consistent_comma
@@ -783,11 +756,11 @@ Metrics/BlockNesting:
 
 Metrics/ClassLength:
   CountComments: false  # count full line comments?
-  Max: 100
+  Max: 150
 
 Metrics/ModuleLength:
   CountComments: false  # count full line comments?
-  Max: 100
+  Max: 150
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
@@ -804,11 +777,11 @@ Metrics/LineLength:
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
-  Max: 10
+  Max: 15
 
 Metrics/ParameterLists:
-  Max: 5
-  CountKeywordArgs: true
+  Max: 3
+  CountKeywordArgs: false
 
 Metrics/PerceivedComplexity:
   Max: 7
