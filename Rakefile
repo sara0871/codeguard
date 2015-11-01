@@ -8,8 +8,14 @@ $LOAD_PATH.unshift(File.dirname(__FILE__) + '/lib')
 
 require 'codequest/styleguide'
 
-task :install_styleguide do
-  Codequest::Styleguide.run
+namespace :styleguide do
+  task :install do
+    Codequest::Styleguide.install
+  end
+
+  task :help do
+    Codequest::Styleguide.help
+  end
 end
 
-task default: :install_styleguide
+task default: 'styleguide:help'

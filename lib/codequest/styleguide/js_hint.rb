@@ -13,6 +13,6 @@ module Codequest
         FileUtils.mkdir_p('config')
         File.open('config/jshint.yml', 'w+') { |f| f.write(output) }
       end
-    end
-  end
-end
+    end # module JSHint
+  end # module Styleguide
+end # module Codequest

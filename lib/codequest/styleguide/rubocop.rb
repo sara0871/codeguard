@@ -10,6 +10,6 @@ module Codequest
 
         File.open('.rubocop.yml', 'w+') { |f| f.write(output) }
       end
-    end
-  end
-end
+    end # module Rubocop
+  end # module Styleguide
+end # module Codequest

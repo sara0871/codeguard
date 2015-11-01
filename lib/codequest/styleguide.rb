@@ -5,9 +5,20 @@ module Codequest
   module Styleguide
     module_function
 
-    def run
+    def install
       Rubocop.copy
       JSHint.copy
     end
-  end
-end
+
+    def help
+      puts %(
+        styleguide help    - show this message
+        styleguide install - install config for current project
+
+        The project will receive configuration for:
+        - rubocop
+        - js_hint
+      )
+    end
+  end # module Styleguide
+end # module Codequest
