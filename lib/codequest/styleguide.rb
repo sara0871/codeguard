@@ -1,5 +1,6 @@
-require 'codequest/styleguide/rubocop'
+require 'codequest/styleguide/coffeelint'
 require 'codequest/styleguide/js_hint'
+require 'codequest/styleguide/rubocop'
 
 module Codequest
   module Styleguide
@@ -8,6 +9,7 @@ module Codequest
     def install
       Rubocop.install
       JSHint.install
+      Coffeelint.install
     end
 
     def help
@@ -18,6 +20,7 @@ module Codequest
         The project will receive configuration for:
         - rubocop
         - js_hint
+        - coffeelint (installation guide: http://www.coffeelint.org/)
       )
     end
 
