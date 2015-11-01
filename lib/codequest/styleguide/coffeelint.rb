@@ -11,6 +11,6 @@ module Codequest
 
         File.open('coffeelint.json', 'w+') { |f| f.write(output) }
       end
-    end # module JSHint
+    end # module Coffeelint
   end # module Styleguide
 end # module Codequest

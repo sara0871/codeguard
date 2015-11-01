@@ -14,6 +14,6 @@ module Codequest
 
         Styleguide.send(command || :help, *args)
       end
-    end # module ClI
+    end # module CLI
   end # module Styleguide
 end # module Codequest
