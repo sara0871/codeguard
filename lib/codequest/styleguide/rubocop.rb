@@ -3,10 +3,8 @@ module Codequest
     module Rubocop
       module_function
 
-      def copy
-        path = File.join($LOAD_PATH.first, '../', 'ruby', '.rubocop.yml')
-
-        output = File.read path
+      def install
+        output = Styleguide.gem_root.join('ruby', '.rubocop.yml').read
 
         File.open('.rubocop.yml', 'w+') { |f| f.write(output) }
       end

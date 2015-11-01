@@ -6,16 +6,13 @@ module Codequest
       module_function
 
       def run(*args)
-        Styleguide.help if args.empty?
-
-        args.each do |arg|
-          unless AVAILABLE_OPTIONS.include?(arg)
-            puts "Invalid option: #{arg}"
-            return Styleguide.help
-          end
-
-          Styleguide.send(arg)
+        command = args.shift
+        unless AVAILABLE_OPTIONS.include?(command)
+          puts "Invalid option: #{command}"
+          command = :help
         end
+
+        Styleguide.send(command || :help, *args)
       end
     end # module ClI
   end # module Styleguide

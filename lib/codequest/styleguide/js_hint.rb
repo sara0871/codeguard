@@ -5,10 +5,8 @@ module Codequest
     module JSHint
       module_function
 
-      def copy
-        path = File.join($LOAD_PATH.first, '../', 'js', 'jshint.yml')
-
-        output = File.read path
+      def install
+        output = Styleguide.gem_root.join('js', 'jshint.yml').read
 
         FileUtils.mkdir_p('config')
         File.open('config/jshint.yml', 'w+') { |f| f.write(output) }

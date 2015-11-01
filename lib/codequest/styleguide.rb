@@ -6,8 +6,8 @@ module Codequest
     module_function
 
     def install
-      Rubocop.copy
-      JSHint.copy
+      Rubocop.install
+      JSHint.install
     end
 
     def help
@@ -19,6 +19,10 @@ module Codequest
         - rubocop
         - js_hint
       )
+    end
+
+    def gem_root
+      Pathname.new($LOAD_PATH.first).join('../')
     end
   end # module Styleguide
 end # module Codequest
