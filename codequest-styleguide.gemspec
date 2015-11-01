@@ -1,0 +1,23 @@
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+
+require 'codequest/styleguide/version'
+
+Gem::Specification.new do |spec|
+  spec.name    = 'codequest-styleguide'
+  spec.version = Codequest::Styleguide::VERSION
+
+  spec.authors     = ['Marcin Wyszynski', 'Michał Samluk']
+  spec.email       = ['marcinw@codequest.com', 'michal@codequest.com']
+  spec.description = 'code quest styleguide'
+  spec.summary     = 'Simple installer for configuration files used'\
+                     'in code quest.'
+  spec.homepage    = 'https://github.com/codequest-eu/styleguide'
+  spec.license     = 'MIT'
+
+  spec.files       = `git ls-files`.split($RS)
+  spec.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+
+  spec.add_dependency 'rubocop'
+  spec.add_development_dependency 'bundler', '>= 1.6.9'
+  spec.add_development_dependency 'rake', '~> 10.3'
+end
