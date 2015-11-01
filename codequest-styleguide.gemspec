@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
 
   spec.add_dependency 'rubocop'
+  spec.add_dependency 'jshint'
   spec.add_development_dependency 'bundler', '>= 1.6.9'
   spec.add_development_dependency 'rake', '~> 10.3'
 end
