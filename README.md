@@ -3,6 +3,18 @@ Coding style @ codequest
 
 Placeholder for an explanation why we're doing it.
 
+Installation
+---
+Add your Gemfile:
+```ruby
+group :development, :test do
+  gem 'codequest-styleguide', path: '../styleguides'
+end
+```
+and run `bundle install`.
+
+You can check available options by running: `styleguide help`
+
 TODO
 ---
 1. Introduce `styleguide check` - it will check if project has proper configuration
