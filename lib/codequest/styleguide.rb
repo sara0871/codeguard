@@ -1,3 +1,4 @@
+require 'codequest/styleguide/file_writable'
 require 'codequest/styleguide/coffeelint'
 require 'codequest/styleguide/js_hint'
 require 'codequest/styleguide/rubocop'
