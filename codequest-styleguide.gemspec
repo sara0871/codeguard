@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name    = 'codequest-styleguide'
   spec.version = Codequest::Styleguide::VERSION
 
-  spec.authors     = ['Marcin Wyszynski', 'Michał Samluk']
+  spec.authors     = ['Marcin Wyszynski', 'Michal Samluk']
   spec.email       = ['marcinw@codequest.com', 'michal@codequest.com']
   spec.description = 'code quest styleguide'
   spec.summary     = 'Simple installer for configuration files used'\
