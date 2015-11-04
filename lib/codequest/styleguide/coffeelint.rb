@@ -8,10 +8,16 @@ module Codequest
       module_function
 
       def install
-        output = Styleguide.gem_root.join(
-          'coffeescript', 'coffeelint.json').read
+        output = config_gem_path.read
+        write_to_file(config_project_path, output)
+      end
 
-        write_to_file('coffeelint.json', output)
+      def config_project_path
+        'coffeelint.json'
+      end
+
+      def config_gem_path
+        Styleguide.gem_root.join('coffeescript', 'coffeelint.json')
       end
     end # module Coffeelint
   end # module Styleguide
