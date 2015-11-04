@@ -21,7 +21,6 @@ module Codequest
         [diff.diff, diff.message]
       end
       transposed = checks.transpose
-      puts transposed.to_s
       puts transposed.first.compact
       puts transposed.last.compact
     end
