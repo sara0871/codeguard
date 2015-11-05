@@ -3,14 +3,14 @@ module Codequest
   module Styleguide
     class Install
       extend Forwardable
-      attr_accessor :check
+      attr_accessor :lint
 
-      def self.perform(check)
-        new(check).tap(&:perform)
+      def self.perform(lint)
+        new(lint).tap(&:perform)
       end
 
-      def initialize(check)
-        @check = check
+      def initialize(lint)
+        @lint = lint
       end
 
       def perform
@@ -40,7 +40,7 @@ module Codequest
         updating
       end
 
-      def_delegators :check, :config_project_path, :config_gem_path
+      def_delegators :lint, :config_project_path, :config_gem_path
     end # class Install
   end # module Styleguide
 end # module Codequest

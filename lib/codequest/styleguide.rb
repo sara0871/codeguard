@@ -8,22 +8,22 @@ require 'codequest/styleguide/diff'
 
 module Codequest
   module Styleguide
-    CHECKS = [Coffeelint, JSHint, Rubocop, SCSSLint]
+    LINTERS = [Coffeelint, JSHint, Rubocop, SCSSLint]
 
     module_function
 
     def install
-      CHECKS.each do |check|
-        Install.perform(check)
+      LINTERS.each do |lint|
+        Install.perform(lint)
       end
     end
 
     def diff
-      checks = CHECKS.map do |check|
-        diff = Diff.perform(check)
+      lints = LINTERS.map do |lint|
+        diff = Diff.perform(lint)
         [diff.diff, diff.message]
       end
-      transposed = checks.transpose
+      transposed = lints.transpose
       puts transposed.first.compact
       puts transposed.last.compact
     end
@@ -32,7 +32,7 @@ module Codequest
       puts %(
         styleguide help    - show this message
         styleguide install - install config for current project
-        styleguide diff - check if the files were not modified
+        styleguide diff    - check if the files were not modified
 
         The project will use configuration for:
         - coffeelint (http://www.coffeelint.org/)
