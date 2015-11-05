@@ -1,5 +1,3 @@
-require 'fileutils'
-
 module Codequest
   module Styleguide
     module Coffeelint
