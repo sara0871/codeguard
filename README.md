@@ -8,7 +8,7 @@ Installation
 Add your Gemfile:
 ```ruby
 group :development, :test do
-  gem 'codequest-styleguide', path: '../styleguides'
+  gem 'codequest-styleguide'
 end
 ```
 and run `bundle install`.
