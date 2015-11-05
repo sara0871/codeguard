@@ -1,15 +1,15 @@
 module Codequest
   module Styleguide
-    module Rubocop
+    module SCSSLint
       module_function
 
       def config_project_path
-        Pathname.new '.rubocop.yml'
+        Pathname.new '.scss-lint.yml'
       end
 
       def config_gem_path
-        Styleguide.gem_root.join('ruby', '.rubocop.yml')
+        Styleguide.gem_root.join('scss', '.scss-lint.yml')
       end
-    end # module Rubocop
+    end # module SCSSLint
   end # module Styleguide
 end # module Codequest

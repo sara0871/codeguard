@@ -17,8 +17,7 @@ You can check available options by running: `styleguide help`
 
 TODO 0.1.0
 ---
-1. SCSS checks
-2. Update README
+1. Update README
 
 TODO 0.2.0
 ---

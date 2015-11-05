@@ -5,15 +5,15 @@ module Codequest
       extend Forwardable
       attr_accessor :check, :message, :raw_diff
 
-      def self.process(check)
-        new(check).tap(&:process)
+      def self.perform(check)
+        new(check).tap(&:perform)
       end
 
       def initialize(check)
         @check = check
       end
 
-      def process
+      def perform
         self.raw_diff = Diffy::Diff.new(config_gem_path.to_s,
                                         config_project_path.to_s,
                                         source: 'files')
