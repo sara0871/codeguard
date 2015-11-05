@@ -1,7 +1,7 @@
 module Codequest
   module Styleguide
     module CLI
-      AVAILABLE_OPTIONS = %w(install help)
+      AVAILABLE_OPTIONS = %w(install help diff)
 
       module_function
 

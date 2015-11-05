@@ -3,6 +3,8 @@ require 'rubygems'
 require 'bundler'
 
 Bundler::GemHelper.install_tasks
+Bundler.setup
+
 
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/lib')
 
@@ -15,6 +17,10 @@ namespace :styleguide do
 
   task :help do
     Codequest::Styleguide.help
+  end
+
+  task :diff do
+    Codequest::Styleguide.diff
   end
 end
 

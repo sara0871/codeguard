@@ -6,6 +6,6 @@ module Codequest
         File.open(path, 'w+') { |f| f.write(content) }
         FileUtils.chmod 'a-w', path
       end
-    end
-  end
-end
+    end # module FileWritable
+  end # module Styleguide
+end # module Codequest
