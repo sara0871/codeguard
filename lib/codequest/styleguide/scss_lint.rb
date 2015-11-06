@@ -8,7 +8,7 @@ module Codequest
       end
 
       def config_gem_path
-        Styleguide.gem_root.join('scss', '.scss-lint.yml')
+        Styleguide.config_path.join('.scss-lint.yml')
       end
     end # module SCSSLint
   end # module Styleguide

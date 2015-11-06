@@ -8,7 +8,7 @@ module Codequest
       end
 
       def config_gem_path
-        Styleguide.gem_root.join('coffeescript', 'coffeelint.json')
+        Styleguide.config_path.join('coffeelint.json')
       end
     end # module Coffeelint
   end # module Styleguide

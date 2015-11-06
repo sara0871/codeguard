@@ -22,6 +22,8 @@ module Codequest
                    "File: #{config_project_path} was created!"
                  end
         puts Rainbow(output).green
+
+        lint.after_install if lint.respond_to?(:after_install)
       end
 
       private

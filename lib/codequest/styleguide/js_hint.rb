@@ -8,7 +8,7 @@ module Codequest
       end
 
       def config_gem_path
-        Styleguide.gem_root.join('js', 'jshint.yml')
+        Styleguide.config_path.join('jshint.yml')
       end
     end # module JSHint
   end # module Styleguide
