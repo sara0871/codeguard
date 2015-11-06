@@ -1,19 +1,10 @@
-require 'fileutils'
-
 module Codequest
   module Styleguide
     module Coffeelint
-      extend FileWritable
-
       module_function
 
-      def install
-        output = config_gem_path.read
-        write_to_file(config_project_path, output)
-      end
-
       def config_project_path
-        'coffeelint.json'
+        Pathname.new 'coffeelint.json'
       end
 
       def config_gem_path

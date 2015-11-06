@@ -3,17 +3,17 @@ module Codequest
   module Styleguide
     class Diff
       extend Forwardable
-      attr_accessor :check, :message, :raw_diff
+      attr_accessor :lint, :message, :raw_diff
 
-      def self.process(check)
-        new(check).tap(&:process)
+      def self.perform(lint)
+        new(lint).tap(&:perform)
       end
 
-      def initialize(check)
-        @check = check
+      def initialize(lint)
+        @lint = lint
       end
 
-      def process
+      def perform
         self.raw_diff = Diffy::Diff.new(config_gem_path.to_s,
                                         config_project_path.to_s,
                                         source: 'files')
@@ -40,7 +40,7 @@ module Codequest
         raw_diff.to_s.empty?
       end
 
-      def_delegators :check, :config_project_path, :config_gem_path
+      def_delegators :lint, :config_project_path, :config_gem_path
     end # class Diff
   end # module Styleguide
 end # module Codequest
