@@ -8,7 +8,7 @@ module Codequest
       end
 
       def config_gem_path
-        Styleguide.gem_root.join('ruby', '.rubocop.yml')
+        Styleguide.config_path.join('.rubocop.yml')
       end
     end # module Rubocop
   end # module Styleguide

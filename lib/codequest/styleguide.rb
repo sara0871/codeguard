@@ -4,11 +4,12 @@ require 'codequest/styleguide/coffeelint'
 require 'codequest/styleguide/js_hint'
 require 'codequest/styleguide/rubocop'
 require 'codequest/styleguide/scss_lint'
+require 'codequest/styleguide/git_message'
 require 'codequest/styleguide/diff'
 
 module Codequest
   module Styleguide
-    LINTERS = [Coffeelint, JSHint, Rubocop, SCSSLint]
+    LINTERS = [Coffeelint, GitMessage, JSHint, Rubocop, SCSSLint]
 
     module_function
 
@@ -39,7 +40,13 @@ module Codequest
         - js_hint (https://github.com/damian/jshint)
         - rubocop (https://github.com/bbatsov/rubocop)
         - scss_lint (https://github.com/brigade/scss-lint)
+
+        .gitmessage file will be added as a template in .git/config
       )
+    end
+
+    def config_path
+      gem_root.join('config')
     end
 
     def gem_root
