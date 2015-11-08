@@ -6,9 +6,10 @@ require 'codeguard/rubocop'
 require 'codeguard/scss_lint'
 require 'codeguard/git_message'
 require 'codeguard/diff'
+require 'codeguard/pre_commit'
 
 module Codeguard
-  LINTERS = [Coffeelint, GitMessage, JSHint, Rubocop, SCSSLint]
+  LINTERS = [Coffeelint, GitMessage, JSHint, PreCommit, Rubocop, SCSSLint]
 
   module_function
 
@@ -29,19 +30,7 @@ module Codeguard
   end
 
   def help
-    puts %(
-      codeguard help    - show this message
-      codeguard install - install config for current project
-      codeguard diff    - check if the files were not modified
-
-      The project will use configuration for:
-      - coffeelint (http://www.coffeelint.org/)
-      - js_hint (https://github.com/damian/jshint)
-      - rubocop (https://github.com/bbatsov/rubocop)
-      - scss_lint (https://github.com/brigade/scss-lint)
-
-      .gitmessage file will be added as a template in .git/config
-    )
+    puts IO.read(gem_root.join('HELP.md'))
   end
 
   def config_path

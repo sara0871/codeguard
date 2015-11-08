@@ -17,4 +17,4 @@ end
 ```
 and run `bundle install`.
 
-You can check available options by running: `codeguard help`
+Check [HELP](HELP.md) for more information or run `codeguard help`

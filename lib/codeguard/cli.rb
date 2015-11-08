@@ -7,11 +7,11 @@ module Codeguard
     def run(*args)
       command = args.shift
       unless AVAILABLE_OPTIONS.include?(command)
-        puts "Invalid option: #{command}"
+        puts "Invalid option: #{command}\n\n" if command
         command = :help
       end
 
-      Codeguard.send(command || :help, *args)
+      Styleguide.send(command || :help, *args)
     end
   end # module CLI
 end # module Codeguard
