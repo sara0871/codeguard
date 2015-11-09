@@ -1,11 +1,15 @@
-Coding style @ codequest
----
+# Coding style @ codequest
+### One stop shop for style
+![Eat glitter for breakfast](eat-glitter.jpg)
 
-Placeholder for an explanation why we're doing it.
+At code quest we enjoy tools that standardize and improve code style. As a team,
+ the less menial stuff you have to worry about the better your code review is.
+In essence this gem is a source of linter configs.
+**Feel free to suggest improvements.**
 
-Installation
----
-Add your Gemfile:
+
+### Installation
+Add to your Gemfile:
 ```ruby
 group :development, :test do
   gem 'codequest-styleguide'
@@ -15,12 +19,7 @@ and run `bundle install`.
 
 You can check available options by running: `styleguide help`
 
-TODO 0.1.0
----
-1. Update README
-
-TODO 0.2.0
----
+### TODO 0.2.0
 1. Add Specs
 2. JS checks (js lint)
 3. pre-commit
