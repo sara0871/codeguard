@@ -1,19 +1,17 @@
-module Codequest
-  module Styleguide
-    module CLI
-      AVAILABLE_OPTIONS = %w(install help diff)
+module Codeguard
+  module CLI
+    AVAILABLE_OPTIONS = %w(install help diff)
 
-      module_function
+    module_function
 
-      def run(*args)
-        command = args.shift
-        unless AVAILABLE_OPTIONS.include?(command)
-          puts "Invalid option: #{command}"
-          command = :help
-        end
-
-        Styleguide.send(command || :help, *args)
+    def run(*args)
+      command = args.shift
+      unless AVAILABLE_OPTIONS.include?(command)
+        puts "Invalid option: #{command}"
+        command = :help
       end
-    end # module CLI
-  end # module Styleguide
-end # module Codequest
+
+      Codeguard.send(command || :help, *args)
+    end
+  end # module CLI
+end # module Codeguard
