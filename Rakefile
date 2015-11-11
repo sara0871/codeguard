@@ -7,20 +7,20 @@ Bundler.setup
 
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/lib')
 
-require 'codequest/styleguide'
+require 'codeguard'
 
-namespace :styleguide do
+namespace :codeguard do
   task :install do
-    Codequest::Styleguide.install
+    Codeguard.install
   end
 
   task :help do
-    Codequest::Styleguide.help
+    Codeguard.help
   end
 
   task :diff do
-    Codequest::Styleguide.diff
+    Codeguard.diff
   end
 end
 
-task default: 'styleguide:help'
+task default: 'codeguard:help'
