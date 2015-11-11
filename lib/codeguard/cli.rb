@@ -1,6 +1,6 @@
 module Codeguard
   module CLI
-    AVAILABLE_OPTIONS = %w(install help diff)
+    AVAILABLE_OPTIONS = %w(install setup help diff)
 
     module_function
 
@@ -11,7 +11,7 @@ module Codeguard
         command = :help
       end
 
-      Styleguide.send(command || :help, *args)
+      Codeguard.send(command || :help, *args)
     end
   end # module CLI
 end # module Codeguard

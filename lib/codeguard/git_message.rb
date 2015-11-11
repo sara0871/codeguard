@@ -1,3 +1,4 @@
+require 'rainbow'
 module Codeguard
   module GitMessage
     module_function
@@ -10,8 +11,9 @@ module Codeguard
       Codeguard.config_path.join('.gitmessage')
     end
 
-    def after_install
+    def setup
       `git config commit.template .gitmessage`
+      puts Rainbow('commit.template was added to git config').green
     end
   end # module GitMessage
 end # module Codeguard

@@ -1,3 +1,4 @@
+require 'rainbow'
 module Codeguard
   module PreCommit
     module_function
@@ -10,9 +11,13 @@ module Codeguard
       Codeguard.config_path.join('pre_commit.yml')
     end
 
-    def after_install
+    def setup
+      `pre-commit install`
+      puts Rainbow('pre-commit hooks were generated').green
+
       return if `which rvm`.empty?
       system('git config pre-commit.ruby "rvm `rvm current` do ruby"')
+      puts Rainbow('pre-commit.ruby was added to git config').green
     end
   end # module PreCommit
 end # module Codeguard

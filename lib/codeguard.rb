@@ -1,5 +1,6 @@
 require 'diffy'
 require 'codeguard/install'
+require 'codeguard/setup'
 require 'codeguard/coffeelint'
 require 'codeguard/js_hint'
 require 'codeguard/rubocop'
@@ -10,12 +11,20 @@ require 'codeguard/pre_commit'
 
 module Codeguard
   LINTERS = [Coffeelint, GitMessage, JSHint, PreCommit, Rubocop, SCSSLint]
+  # Lints that require setup in every local environment
+  LOCAL_LINTERS = [GitMessage, PreCommit]
 
   module_function
 
   def install
     LINTERS.each do |lint|
       Install.perform(lint)
+    end
+  end
+
+  def setup
+    LOCAL_LINTERS.each do |lint|
+      Setup.perform(lint)
     end
   end
 
