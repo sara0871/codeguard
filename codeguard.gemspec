@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'jshint'
   spec.add_runtime_dependency 'scss_lint'
   spec.add_runtime_dependency 'diffy'
+  spec.add_runtime_dependency 'pre-commit'
   spec.add_development_dependency 'bundler', '>= 1.6.9'
   spec.add_development_dependency 'rake', '~> 10.3'
 end

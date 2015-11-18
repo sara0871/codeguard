@@ -1,20 +1,30 @@
 require 'diffy'
 require 'codeguard/install'
+require 'codeguard/setup'
 require 'codeguard/coffeelint'
 require 'codeguard/js_hint'
 require 'codeguard/rubocop'
 require 'codeguard/scss_lint'
 require 'codeguard/git_message'
 require 'codeguard/diff'
+require 'codeguard/pre_commit'
 
 module Codeguard
-  LINTERS = [Coffeelint, GitMessage, JSHint, Rubocop, SCSSLint]
+  LINTERS = [Coffeelint, GitMessage, JSHint, PreCommit, Rubocop, SCSSLint]
+  # Lints that require setup in every local environment
+  LOCAL_LINTERS = [GitMessage, PreCommit]
 
   module_function
 
   def install
     LINTERS.each do |lint|
       Install.perform(lint)
+    end
+  end
+
+  def setup
+    LOCAL_LINTERS.each do |lint|
+      Setup.perform(lint)
     end
   end
 
@@ -29,19 +39,7 @@ module Codeguard
   end
 
   def help
-    puts %(
-      codeguard help    - show this message
-      codeguard install - install config for current project
-      codeguard diff    - check if the files were not modified
-
-      The project will use configuration for:
-      - coffeelint (http://www.coffeelint.org/)
-      - js_hint (https://github.com/damian/jshint)
-      - rubocop (https://github.com/bbatsov/rubocop)
-      - scss_lint (https://github.com/brigade/scss-lint)
-
-      .gitmessage file will be added as a template in .git/config
-    )
+    puts IO.read(gem_root.join('HELP.md'))
   end
 
   def config_path
