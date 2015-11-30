@@ -9,5 +9,5 @@ module Codeguard
     def config_gem_path
       Codeguard.config_path.join('config.reek')
     end
-  end # module Rubocop
+  end # module Reek
 end # module Codeguard
