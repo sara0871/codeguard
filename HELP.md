@@ -13,6 +13,7 @@ Installed Configuration
 * rubocop (https://github.com/bbatsov/rubocop)
 * scss_lint (https://github.com/brigade/scss-lint)
 * pre_commit (https://github.com/jish/pre-commit)
+* jade-lint (https://github.com/benedfit/jade-lint)
 
 Local Setup
 ---

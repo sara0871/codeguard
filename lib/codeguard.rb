@@ -10,7 +10,8 @@ require 'codeguard/diff'
 require 'codeguard/pre_commit'
 
 module Codeguard
-  LINTERS = [Coffeelint, GitMessage, JSHint, PreCommit, Rubocop, SCSSLint]
+  LINTERS = [Coffeelint, GitMessage, JSHint,
+             PreCommit, Rubocop, SCSSLint, JadeLint]
   # Lints that require setup in every local environment
   LOCAL_LINTERS = [GitMessage, PreCommit]
 
