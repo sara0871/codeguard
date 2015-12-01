@@ -14,6 +14,7 @@ Installed Configuration
 * scss_lint (https://github.com/brigade/scss-lint)
 * pre_commit (https://github.com/jish/pre-commit)
 * reek (https://github.com/troessner/reek)
+* slim_lint (https://github.com/sds/slim-lint)
 
 Local Setup
 ---

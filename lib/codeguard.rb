@@ -9,6 +9,7 @@ require 'codeguard/scss_lint'
 require 'codeguard/git_message'
 require 'codeguard/diff'
 require 'codeguard/pre_commit'
+require 'codeguard/slim_lint'
 
 module Codeguard
   LINTERS = [
@@ -19,6 +20,7 @@ module Codeguard
     Reek,
     Rubocop,
     SCSSLint,
+    SlimLint,
   ]
   # Lints that require setup in every local environment
   LOCAL_LINTERS = [GitMessage, PreCommit]
