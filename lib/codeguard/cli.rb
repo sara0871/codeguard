@@ -11,7 +11,24 @@ module Codeguard
         command = :help
       end
 
-      Codeguard.send(command || :help, *args)
+      options = extract_options(*args)
+      Codeguard.send(command || :help, options)
+    end
+
+    def extract_options(*args)
+      options = {}
+      while (val = args.shift)
+        if (key = val[/^--(.*)$/, 1])
+          options[key.to_sym] = []
+        else
+          options[options.keys.last] << val.to_sym
+        end
+      end
+      options
+    end
+
+    def default_options
+      {}
     end
   end # module CLI
 end # module Codeguard

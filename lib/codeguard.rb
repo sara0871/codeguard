@@ -1,4 +1,5 @@
 require 'diffy'
+require 'yaml'
 require 'codeguard/install'
 require 'codeguard/setup'
 require 'codeguard/coffeelint'
@@ -10,37 +11,25 @@ require 'codeguard/git_message'
 require 'codeguard/diff'
 require 'codeguard/pre_commit'
 require 'codeguard/slim_lint'
+require 'codeguard/linters'
 
 module Codeguard
-  LINTERS = [
-    Coffeelint,
-    GitMessage,
-    JSHint,
-    PreCommit,
-    Reek,
-    Rubocop,
-    SCSSLint,
-    SlimLint,
-  ]
-  # Lints that require setup in every local environment
-  LOCAL_LINTERS = [GitMessage, PreCommit]
-
   module_function
 
-  def install
-    LINTERS.each do |lint|
+  def install(options = {})
+    Linters.for(:project, options).each do |lint|
       Install.perform(lint)
     end
   end
 
-  def setup
-    LOCAL_LINTERS.each do |lint|
+  def setup(options = {})
+    Linters.for(:local, options).values.each do |lint|
       Setup.perform(lint)
     end
   end
 
-  def diff
-    lints = LINTERS.map do |lint|
+  def diff(_options = {})
+    lints = Linters.for(:project, options).values.map do |lint|
       diff = Diff.perform(lint)
       [diff.diff, diff.message]
     end
@@ -49,7 +38,7 @@ module Codeguard
     puts transposed.last.compact
   end
 
-  def help
+  def help(_options = {})
     puts IO.read(gem_root.join('HELP.md'))
   end
 

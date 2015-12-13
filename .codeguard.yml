@@ -1,0 +1,10 @@
+:project:
+  :include:
+    - :reek
+    - :rubocop
+    - :git_message
+    - :pre_commit
+:local:
+  :include:
+    - :git_message
+    - :pre_commit
