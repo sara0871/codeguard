@@ -4,16 +4,16 @@ Availables Commands
 * `codeguard generate` - generates codeguard configuration
 * `codeguard install`  - install config for current project
                          Available options:
-                         --include only check_1 check2, ...
+                         --include rubocop reek
                            Install only selected checks
-                         --exclude only check_1 check2, ...
+                         --exclude js_hint scss_lint
                            Install excluding some of the checks
 * `codeguard setup`    - sets local configuration - this cmd should be run
                          in every local environment
                          Available options:
-                         --include only check_1 check2, ...
+                         --include rubocop reek ...
                            Install only selected checks
-                         --exclude only check_1 check2, ...
+                         --exclude js_hint scss_lint ...
                            Install excluding some of the checks
 * `codeguard diff`     - check if the files were not modified
 
