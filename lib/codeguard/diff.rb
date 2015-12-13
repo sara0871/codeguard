@@ -2,7 +2,7 @@ require 'rainbow'
 module Codeguard
   class Diff
     extend Forwardable
-    attr_accessor :lint, :message, :raw_diff
+    attr_reader :lint, :raw_diff
 
     def self.perform(lint)
       new(lint).tap(&:perform)
@@ -13,9 +13,9 @@ module Codeguard
     end
 
     def perform
-      self.raw_diff = Diffy::Diff.new(config_gem_path.to_s,
-                                      config_project_path.to_s,
-                                      source: 'files')
+      @raw_diff = Diffy::Diff.new(config_gem_path.to_s,
+                                  config_project_path.to_s,
+                                  source: 'files')
     end
 
     def diff
