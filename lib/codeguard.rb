@@ -17,19 +17,19 @@ module Codeguard
   module_function
 
   def install(options = {})
-    Linters.for(:project, options).each do |lint|
+    Linters.for(:project, options).each do |_, lint|
       Install.perform(lint)
     end
   end
 
   def setup(options = {})
-    Linters.for(:local, options).values.each do |lint|
+    Linters.for(:local, options).each do |_, lint|
       Setup.perform(lint)
     end
   end
 
   def diff(options = {})
-    lints = Linters.for(:project, options).values.map do |lint|
+    lints = Linters.for(:project, options).map do |_, lint|
       diff = Diff.perform(lint)
       [diff.diff, diff.message]
     end
