@@ -20,7 +20,7 @@ module Codeguard
     module_function
 
     def for(type, options)
-      options = defaults[type].merge(options)
+      options = default_options[type].merge(options)
 
       included = options.fetch(:include) { AVAILABLE[type].keys }
       excluded = options.fetch(:exclude) { [] }

@@ -28,7 +28,7 @@ module Codeguard
     end
   end
 
-  def diff(_options = {})
+  def diff(options = {})
     lints = Linters.for(:project, options).values.map do |lint|
       diff = Diff.perform(lint)
       [diff.diff, diff.message]
