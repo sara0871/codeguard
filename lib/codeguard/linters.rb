@@ -19,8 +19,12 @@ module Codeguard
 
     module_function
 
-    def for(type, options)
-      options = default_options[type].merge(options)
+    def all
+      (AVAILABLE[:project].keys + AVAILABLE[:local].keys).uniq
+    end
+
+    def for(type, options = {})
+      options = default_options.merge(options)
 
       included = options.fetch(:include) { AVAILABLE[type].keys }
       excluded = options.fetch(:exclude) { [] }
@@ -32,7 +36,7 @@ module Codeguard
     def default_options
       YAML.load(IO.read('.codeguard.yml'))
     rescue
-      {project: {}, local: {}}
+      {}
     end
   end # class Linters
 end # module Codeguard

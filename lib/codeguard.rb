@@ -42,6 +42,13 @@ module Codeguard
     puts IO.read(gem_root.join('HELP.md'))
   end
 
+  def generate(_options = {})
+    config = {
+      include: Linters.all
+    }.to_yaml
+    IO.write('.codeguard.yml', config)
+  end
+
   def config_path
     gem_root.join('config')
   end

@@ -1,6 +1,6 @@
 module Codeguard
   module CLI
-    AVAILABLE_OPTIONS = %w(install setup help diff)
+    AVAILABLE_OPTIONS = %w(install setup help diff generate)
 
     module_function
 
@@ -25,10 +25,6 @@ module Codeguard
         end
       end
       options
-    end
-
-    def default_options
-      {}
     end
   end # module CLI
 end # module Codeguard

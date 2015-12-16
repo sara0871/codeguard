@@ -18,3 +18,15 @@ end
 and run `bundle install`.
 
 Check [HELP](HELP.md) for more information or run `codeguard help`
+
+### Customize codeguard
+
+Run `codeguard generate` to create a configuration file (`.codeguard.yml`).
+If you want to check your project with `Rubocop` and `Reek` only you could do:
+
+```yaml
+:include:
+- :reek
+- :rubocop
+```
+Passing options directly to command will override the config.
