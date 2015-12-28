@@ -649,9 +649,7 @@ Style/SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: true
 
 Style/SpaceInsideHashLiteralBraces:
-  # NOTE(marcinw): I  don't like it but it seems to be an established code quest
-  #                pattern so instead of fighting against it we can codify it.
-  EnforcedStyle: no_space
+  EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
   SupportedStyles:
     - space
