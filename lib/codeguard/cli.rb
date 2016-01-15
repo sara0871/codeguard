@@ -1,6 +1,6 @@
 module Codeguard
   module CLI
-    AVAILABLE_OPTIONS = %w(install setup help diff)
+    AVAILABLE_OPTIONS = %w(install setup help diff).freeze
 
     module_function
 

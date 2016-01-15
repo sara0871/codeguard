@@ -21,9 +21,9 @@ module Codeguard
     Rubocop,
     SCSSLint,
     SlimLint,
-  ]
+  ].freeze
   # Lints that require setup in every local environment
-  LOCAL_LINTERS = [GitMessage, PreCommit]
+  LOCAL_LINTERS = [GitMessage, PreCommit].freeze
 
   module_function
 

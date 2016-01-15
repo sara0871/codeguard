@@ -19,12 +19,12 @@ Gem::Specification.new do |spec|
     File.basename(f)
   end
 
-  spec.add_runtime_dependency 'rubocop'
+  spec.add_runtime_dependency 'rubocop', '>= 0.36'
   spec.add_runtime_dependency 'jshint'
   spec.add_runtime_dependency 'scss_lint'
   spec.add_runtime_dependency 'diffy'
   spec.add_runtime_dependency 'pre-commit'
-  spec.add_runtime_dependency 'reek'
+  spec.add_runtime_dependency 'reek', '>= 3.8'
   spec.add_runtime_dependency 'slim_lint'
   spec.add_development_dependency 'bundler', '>= 1.6.9'
   spec.add_development_dependency 'rake', '~> 10.3'
