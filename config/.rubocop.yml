@@ -633,7 +633,7 @@ Style/MultilineAssignmentLayout:
     - new_line
 
 Style/MultilineMethodCallIndentation:
-  EnforcedStyle: aligned
+  EnforcedStyle: indented
   SupportedStyles:
     - aligned
     - indented
