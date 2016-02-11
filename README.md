@@ -1,4 +1,4 @@
-# Coding style @ codequest
+# Coding style @ codequest [![codebeat badge](https://codebeat.co/badges/2f98ed18-d70c-4ae2-8317-5b556a9ae532)](https://codebeat.co/projects/codeguard-master)
 ### One stop shop for style
 ![Eat glitter for breakfast](eat-glitter.jpg)
 
